@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Restaurant Name{% endblock %}</title>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'CustomerView/styles.css' %}" rel="stylesheet">
+        <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+    .bs-example {
+      margin: 0px;
+
+    }
+
+    .navbar-brand {
+      font-size: 20px;
+      font-family: sans-serif;
+
+    }
+  </style>
+
+        {% block style%} {% endblock %}
+    </head>
+    <body>
+        <h1> . </h1>
+        <div>
+            {% if user.is_authenticated %}
+                Signed in as <strong>{{ user.username }}</strong>.
+            {% else %}
+                Not signed in.
+            {% endif %}
+        </div>
+        <ul class="nav">
+            
+            {% if user.is_authenticated %}
+            <div class="bs-example">
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background:#337AB7;">
+                  <a href="/" class="navbar-brand">Restaurant Management</a>
+                  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+            
+                  <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-item nav-link" href="{% url 'Dashboard_customer' %}"></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-item nav-link" > Employee Services</a>
+               
+            </li>
+
+            <li class="nav-item">
+                
+               
+            </li>
+            <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{% url 'AboutUs' %}"> About US</a>
+
+    
+                
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-item nav-link" href="{% url 'logout' %}">Log Out</a>
+            </li>
+        </div>
+        </div>
+    </nav>
+  </div>
+
+
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{% url 'login' %}?data=customer">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{% url 'register' %}?data=customer">Register</a>
+                </li>
+            {% endif %}
+        </ul>
+        <hr>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

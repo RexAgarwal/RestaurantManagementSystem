@@ -1,0 +1,11 @@
+body {
+    padding: 20px;
+}
+input{
+	border: 2px;
+	border-color: black;
+}
+textarea {
+	border: 2px;
+	border-color: black;
+}

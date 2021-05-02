@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+ <head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Simple House </title> 
+	<link href="{% static 'CustomerView/css/styles.css' %}" rel="stylesheet">
+	<link href="{% static 'CustomerView/css/all.min.css' %}" rel="stylesheet">
+	<link href="{% static 'CustomerView/css/templatemo-style.css' %}" rel="stylesheet">
+	
+  
+	<style>
+		<!-- /* greek-ext */ -->
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url("{% static 'CustomerView/mem8YaGs126MiZpBA-UFW50bbck.woff2' %}") format('woff2');
+	unicode-range: U+1F00-1FFF;
+  }
+  <!-- /* greek */ -->
+  @font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url("{% static 'CustomerView/mem8YaGs126MiZpBA-UFW50bbck.woff2' %}") format('woff2');
+	unicode-range: U+0370-03FF;
+  }
+  <!-- /* vietnamese */ -->
+  @font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url("{% static 'CustomerView/mem8YaGs126MiZpBA-UFW50bbck.woff2' %}") format('woff2');
+	unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+  }
+  <!-- /* latin-ext */ -->
+  @font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url("{% static 'CustomerView/mem8YaGs126MiZpBA-UFW50bbck.woff2' %}") format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  <!-- /* latin */ -->
+  @font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url("{% static 'CustomerView/mem8YaGs126MiZpBA-UFW50bbck.woff2' %}") format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+	</style>
+
+</head> 
+
+<body> 
+	<div>
+		{% if user.is_authenticated %}
+			Signed in as <strong>{{ user.username }}</strong>.
+		{% else %}
+			Not signed in.
+		{% endif %}
+	</div>
+
+	<div class="container">
+	<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="{% static 'CustomerView/img/simple-house-01.jpg' %}">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<div class="tm-site-text-box">
+								<h1 class="tm-site-title">Simple House</h1>
+								<h6 class="tm-site-description">new restaurant template</h6>	
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<li class="tm-nav-li"><a href="{% url 'Dashboard_customer' %}" class="tm-nav-link active">Home</a></li>
+								<li class="tm-nav-li"><a href="{% url 'AboutUs' %}" class="tm-nav-link">About</a></li>
+								{% if user.is_authenticated %}
+								<li class="tm-nav-li"><a href="{% url 'logout' %}" class="tm-nav-link">Logout</a></li>
+								
+								{% else %}
+								<li class="tm-nav-li"><a href="{% url 'login' %}?data=customer" class="tm-nav-link">Login</a></li>
+								<li class="tm-nav-li"><a href="{% url 'register' %}?data=customer" class="tm-nav-link">Register</a></li>
+								
+
+								{% endif%}
+								
+							</ul>
+						</nav>	
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<h2 class="col-12 text-center tm-section-title">Welcome to Simple House</h2>
+				<p class="col-12 text-center"></p>
+			</header>
+			
+			<div class="tm-paging-links">
+				<nav>
+					<ul>
+						<li class="tm-paging-item"><a href="#" class="tm-paging-link active">Pizza</a></li>
+						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Salad</a></li>
+						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Noodle</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<!-- Gallery -->
+			<div class="row tm-gallery">
+				<!-- gallery page 1 -->
+				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
+					 for FoodItem in FoodItems 
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src= " FoodItem.image_url " alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">FoodItem.name</h4>
+								<p class="tm-gallery-description"FoodItem.description</p>
+								<p class="tm-gallery-price"> FoodItem.price</p>
+							</figcaption>
+						</figure>
+					</article>
+					<!-- <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/02.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Aliquam sagittis</h4>
+								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
+								<p class="tm-gallery-price">$65 / $70</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/03.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Sed varius turpis</h4>
+								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
+								<p class="tm-gallery-price">$30.50</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/04.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Aliquam sagittis</h4>
+								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
+								<p class="tm-gallery-price">$25.50</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/05.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Maecenas eget justo</h4>
+								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
+								<p class="tm-gallery-price">$80.25</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/06.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Quisque et felis eros</h4>
+								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
+								<p class="tm-gallery-price">$20 / $40 / $60</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/07.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Sed ultricies dui</h4>
+								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
+								<p class="tm-gallery-price">$94</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/08.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Donec porta consequat</h4>
+								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>
+								<p class="tm-gallery-price">$15</p>
+							</figcaption>
+						</figure>
+					</article> -->
+				</div> <!-- gallery page 1 -->
+				
+				<!-- gallery page 2 -->
+				<div id="tm-gallery-page-salad" class="tm-gallery-page hidden">
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/04.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Salad Menu One</h4>
+								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
+								<p class="tm-gallery-price">$25</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/03.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Second Title Salad</h4>
+								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
+								<p class="tm-gallery-price">$30</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/03.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Third Salad Item</h4>
+								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
+								<p class="tm-gallery-price">$45</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/01.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Superior Salad</h4>
+								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
+								<p class="tm-gallery-price">$50</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/08.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Sed ultricies dui</h4>
+								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
+								<p class="tm-gallery-price">$55 / $60</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/07.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Maecenas eget justo</h4>
+								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>
+								<p class="tm-gallery-price">$75</p>
+							</figcaption>
+						</figure>
+					</article>
+				</div> <!-- gallery page 2 -->
+				
+				<!-- gallery page 3 -->
+				<div id="tm-gallery-page-noodle" class="tm-gallery-page hidden">
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/08.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Noodle One</h4>
+								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+								<p class="tm-gallery-price">$12.50</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/07.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Noodle Second</h4>
+								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+								<p class="tm-gallery-price">$15.50</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/06.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Third Soft Noodle</h4>
+								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+								<p class="tm-gallery-price">$20.50</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/05.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Aliquam sagittis</h4>
+								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+								<p class="tm-gallery-price">$30.25</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/04.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Maecenas eget justo</h4>
+								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+								<p class="tm-gallery-price">$35.50</p>
+							</figcaption>
+						</figure>
+					</article>
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src="{% static 'CustomerView/img/gallery/03.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />
+							<figcaption>
+								<h4 class="tm-gallery-title">Quisque et felis eros</h4>
+								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+								<p class="tm-gallery-price">$40.50</p>
+							</figcaption>
+						</figure>
+					</article>
+
+				</div> <!-- gallery page 3 -->
+			</div>
+			<div class="tm-section tm-container-inner">
+				<div class="row">
+					<div class="col-md-6">
+						<figure class="tm-description-figure">
+							<img src="{% static 'CustomerView/img/img-01.jpg' %}" alt="Image" class="img-fluid" />
+						</figure>
+					</div>
+					<div class="col-md-6">
+						<div class="tm-description-box"> 
+							<h4 class="tm-gallery-title">Maecenas nulla neque</h4>
+							<p class="tm-mb-45"></p>
+							<a href="about.html" class="tm-btn tm-btn-default tm-right">Read More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer class="tm-footer text-center">
+			
+		</footer>
+	</div>
+	<script src="{% static 'CustomerView/js/jquery.min.js' %}"></script>
+	<script src="{% static 'CustomerView/js/parallax.min.js' %}"></script>
+	<script>
+		$(document).ready(function(){
+			// Handle click on paging links
+			$('.tm-paging-link').click(function(e){
+				e.preventDefault();
+				
+				var page = $(this).text().toLowerCase();
+				$('.tm-gallery-page').addClass('hidden');
+				$('#tm-gallery-page-' + page).removeClass('hidden');
+				$('.tm-paging-link').removeClass('active');
+				$(this).addClass("active");
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet'>
+		  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+
+		  <style>
+		  *{
+	margin:0px;
+	padding:0px;
+}
+
+.bgimage{
+	background-image: url('https://img.freepik.com/free-photo/gold-cutlery-set-black-background_1220-4103.jpg?size=626&ext=jpg');
+	background-size: 100% 110%;
+	width: 100%;
+	height: 100vh;
+}
+#fisrtlist{
+	color: orange;
+}
+
+
+
+.text{
+	width: 100%;
+	margin-top: 0px;
+	text-transform: uppercase;
+	text-align: center;
+	color:white;
+}
+
+.text h4{
+
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.text h1{
+	font-size:62px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700px;
+	margin:14px 0px;
+}
+
+.text h3{
+	font-size: 12px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+#buttonone{
+	background-color: white;
+	border: none;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 40px;
+	width: 150px;
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 150px;
+	border: 3px solid white;
+
+}
+
+#buttontwo{
+
+	background-color: white;
+	border: none;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 40px;
+	border: 3px solid white;
+	width: 150px;
+  margin-right:600px;
+}
+		  </style>
+</head>
+<body>
+
+	<div class="bgimage">
+
+		<div class="text">
+			<h4> Dine In • Book A Table • HOME DELIVERIES </h4>
+			<h1> SIMPLE HOUSE </h1>
+			<h3> WE ARE THE ONE OF THE WORLD’S TOP RESTAURANTS </h3>
+      <div id="user">
+      </div>
+			<button id="buttonone"> <a class="nav-item nav-link" href="{% url 'login'  %}?data=staff">Log In</a></button>
+			<button id="buttontwo"> <a class="nav-item nav-link" href="{% url 'register' %}?data=staff">Register </a></button> 
+		</div>
+
+	</div>
+
+</body>
+</html>
